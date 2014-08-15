@@ -1,0 +1,47 @@
+@import "bourbon"
+@import "http://fonts.googleapis.com/css?family=Audiowide"
+@import "http://fonts.googleapis.com/css?family=Play"
+@import "http://fonts.googleapis.com/css?family=Oxygen"
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+$border_radius: 5px
+
+html,body
+  width: 62em
+  background: #111
+  margin: 0 auto
+  margin-top: 1em
+  text-shadow: 0 0 2px #111
+
+h1,h2,h3,h4,h5,h6,p,b,i,pre
+  margin: 0
+  padding: 3px
+h1
+  font-family: 'Audiowide', sans-serif
+p,b,i,pre
+  font-family: 'Oxygen', sans-serif
+  text-shadow: 0 0 1px black
+
+#container
+  box-shadow: 0 0 5px #FF3
+  border-radius: $border_radius $border_radius $border_radius $border_radius
+
+.header
+  background: darken(lightgrey, 10%)
+  border-radius: $border_radius $border_radius 0px 0px
+  a
+    margin-left: 12px
+
+.button
+  font-family: 'Play', sans-serif
+  @include button(simple, red)
+
+.content
+  background: lightgrey
+
+.footer
+  background: darken(lightgrey, 10%)
+  border-radius: 0px 0px $border_radius $border_radius

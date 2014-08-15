@@ -1,0 +1,23 @@
+DOCTYPE html
+html
+  head
+    title RubyGameHub
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    #container
+      .header
+        h1 #Gametitle# Game Hub
+        a class="button" href="/" Main
+        a class="button" href="/servers" Servers
+        a class="button" href="/players" Players
+        a class="button" href="/search" Search
+        br
+        -# Remove me later:
+        p Online players: 12. Active games: 3. Longest matchingmaking time: 63.7 seconds. Players in matchingmaking: 0.
+        br
+      .content
+        == yield
+      .footer
+        p &copy; 2014 - #{Time.now.year} Cyberarm. RubyGameHub - Matchmaking and Hub for your game.
