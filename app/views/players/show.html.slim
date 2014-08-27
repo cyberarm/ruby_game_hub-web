@@ -1,0 +1,5 @@
+h1 #{@player.username.capitalize}'s Profile
+p Member since #{time_ago_in_words(@player.created_at)} ago.
+p Last sign in was #{time_ago_in_words(@player.current_sign_in_at)} ago.
+
+= render "players/part/activity"

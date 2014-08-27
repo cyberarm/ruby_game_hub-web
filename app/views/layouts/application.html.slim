@@ -1,7 +1,7 @@
 DOCTYPE html
 html
   head
-    title RubyGameHub
+    title #Gametitle# Game Hub
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -14,10 +14,35 @@ html
         a class="button" href="/players" Players
         a class="button" href="/search" Search
         br
-        -# Remove me later:
-        p Online players: 12. Active games: 3. Longest matchingmaking time: 63.7 seconds. Players in matchingmaking: 0.
+        -# Making me work, please. I hate beinging a dumby!
+        p <i class="fa fa-users info" title="Online players"> 12</i> <i class="fa fa-gamepad info" title="Active games"> 3</i> <i class="fa fa-clock-o info" title="Longest matchingmaking time (in seconds)"> 63.7</i> <i class="fa fa-spinner info" title="Players in matchingmaking"> 0</i>
+        -# if player_signed_in?
+        - if defined?(flash[:notice])
+          p.notice #{flash[:notice]}
+        - if defined?(flash[:error])
+          p.error #{flash[:error]}
+        - if defined?(flash[:alert])
+          p.error #{flash[:alert]}
+          
         br
       .content
-        == yield
+        .sidebar
+          - if player_signed_in?
+            a href="/players/#{current_player.username}"
+              img src=gravatar_image_url(current_player.email, size: 198) alt=current_player.username.humanize
+            = link_to current_player.username.humanize, "/players/#{current_player.username}", class: "nav-button"
+            = link_to "Account", edit_player_registration_path, class: "nav-button"
+            = link_to "Sign Out", destroy_player_session_path, class: "nav-button", method: "delete"
+            .friends
+              h3 Comrades
+              -# This is not much fun. I stay the same all the time.
+              p <i class="fa fa-circle online info", title="Online"></i> Bob
+              p Freddy
+          - else
+            = link_to "Sign Up", new_player_registration_path, class: "nav-button"
+            = link_to "Sign In", new_player_session_path, class: "nav-button-bottom"
+        #content
+          == yield
+          br
       .footer
-        p &copy; 2014 - #{Time.now.year} Cyberarm. RubyGameHub - Matchmaking and Hub for your game.
+        p <a href="https://github.com/cyberarm/ruby-game-hub">RubyGameHub</a> - Matchmaking and Hub for your game.

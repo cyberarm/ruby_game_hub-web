@@ -1,11 +1,13 @@
 @import "bourbon"
+@import "font-awesome"
 @import "http://fonts.googleapis.com/css?family=Audiowide"
 @import "http://fonts.googleapis.com/css?family=Play"
 @import "http://fonts.googleapis.com/css?family=Oxygen"
 /*
- *= require_tree .
- *= require_self
- */
+  *= require_tree .
+  *= require_self
+  *= require font-awesome
+  */
 
 $border_radius: 5px
 
@@ -16,18 +18,69 @@ html,body
   margin-top: 1em
   text-shadow: 0 0 2px #111
 
-h1,h2,h3,h4,h5,h6,p,b,i,pre
+h1,h2,h3,h4,h5,h6,p,b,i,pre,label
   margin: 0
   padding: 3px
-h1
+  word-wrap: break-word
+
+h1,h2,h3,h4,h5,h6
   font-family: 'Audiowide', sans-serif
-p,b,i,pre
+
+p,b,i,pre,label,a
   font-family: 'Oxygen', sans-serif
   text-shadow: 0 0 1px black
+
+a
+  color: blue
+  text-decoration: none
+  &:hover
+    color: darken(blue, 20%)
+  &:active
+    color: purple
+
+input
+  width: 75%
+  margin: 3px
+  padding: 3px
 
 #container
   box-shadow: 0 0 5px #FF3
   border-radius: $border_radius $border_radius $border_radius $border_radius
+#content
+  float: right
+  width: 79%
+  padding: 3px
+.sidebar
+  background: darken(lightgrey, 10%)
+  border-radius: 0 0 $border_radius 0
+  float: left
+  width: 20%
+
+.friends
+  background: darken(lightgrey, 15%)
+  border-radius: 0 0 $border_radius 0
+
+.nav-button
+  text-align: center
+  font-size: 1.1em
+  padding: 3px
+  background: darken(lightgrey, 10%)
+  display: block
+  &:hover
+    background: darken(lightgrey, 15%)
+  &:active
+    background: darken(lightgrey, 25%)
+.nav-button-bottom
+  border-radius: 0 0 $border_radius 0
+  font-size: 1.1em
+  text-align: center
+  padding: 3px
+  background: darken(lightgrey, 10%)
+  display: block
+  &:hover
+    background: darken(lightgrey, 15%)
+  &:active
+    background: darken(lightgrey, 25%)
 
 .header
   background: darken(lightgrey, 10%)
@@ -36,12 +89,44 @@ p,b,i,pre
     margin-left: 12px
 
 .button
-  font-family: 'Play', sans-serif
   @include button(simple, red)
+  font-size: 1.1em
+  font-family: 'Play', sans-serif
+  color: white
+  &:hover
+    color: darken(white, 20%)
 
 .content
   background: lightgrey
+  overflow: hidden
 
 .footer
   background: darken(lightgrey, 10%)
   border-radius: 0px 0px $border_radius $border_radius
+
+.gravatar
+  border-radius: 2px
+  
+  // float: left
+  // overflow: hidden
+
+.notice
+  color: lighten(green, 15%)
+  font-weight: bold
+  text-shadow: 0 0 2px white
+.alert
+  color: yellow
+  font-weight: bold
+.error
+  color: red
+  font-weight: bold
+
+.form_error
+  color: darken(red, 12%)
+  font-weight: bolder
+
+.online
+  color: lightblue
+
+.info
+  cursor: help

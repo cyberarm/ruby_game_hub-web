@@ -1,2 +1,4 @@
-h1 #Game# Game Hub
-p Compete and play with your friends.
+- if player_signed_in?
+  = render "home/part/activity"
+- else
+  = render "home/part/intro"

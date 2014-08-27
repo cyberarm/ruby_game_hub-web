@@ -7,6 +7,7 @@ gem 'rails', '4.1.4'
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+gem 'font-awesome-sass'
 # Use Slim for layout
 gem "slim-rails"
 # Use Uglifier as compressor for JavaScript assets
@@ -17,7 +18,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 
 gem "devise"
+gem "grape"
 gem "bourbon"
+gem "gravatar_image_tag"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
