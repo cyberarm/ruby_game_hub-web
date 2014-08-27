@@ -1,14 +1,14 @@
 DOCTYPE html
 html
   head
-    title #Gametitle# Game Hub
+    title =RubyGameHub.hub_name
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
     #container
       .header
-        h1 #Gametitle# Game Hub
+        h1 =RubyGameHub.hub_name
         a class="button" href="/" Main
         a class="button" href="/servers" Servers
         a class="button" href="/players" Players
@@ -45,4 +45,4 @@ html
           == yield
           br
       .footer
-        p <a href="https://github.com/cyberarm/ruby-game-hub">RubyGameHub</a> - Matchmaking and Hub for your game.
+        p =RubyGameHub.hub_footer
