@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get '/about' => 'home#about'
   get '/players' => 'players#index'
   get '/players/:username' => 'players#show'
+
+  mount RubyGameHub::API => '/api'
 end
