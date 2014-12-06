@@ -1,3 +1,5 @@
+[![Dependency Status](https://gemnasium.com/cyberarm/ruby-game-hub.svg)](https://gemnasium.com/cyberarm/ruby-game-hub) [![Code Climate](https://codeclimate.com/github/cyberarm/ruby-game-hub/badges/gpa.svg)](https://codeclimate.com/github/cyberarm/ruby-game-hub)
+
 # Ruby Game Hub
 Matchmaking and Hub for games.
 
