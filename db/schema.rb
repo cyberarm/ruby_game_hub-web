@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20141206151000) do
 
   create_table "activities", force: true do |t|
     t.string   "event"
-    t.text     "desciption"
+    t.text     "description"
     t.integer  "player_id"
     t.datetime "created_at"
     t.datetime "updated_at"
