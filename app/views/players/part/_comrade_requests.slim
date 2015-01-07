@@ -1,0 +1,8 @@
+- unless @comrade_requests.blank?
+  h2 Comrade Requests
+  - @comrade_requests.each do |comrade|
+    h4 <a href="/players/#{comrade.player.username}">#{comrade.player.username}</a> wants to be your comrade:
+    p
+      a href="#" Accept
+      |  or 
+      a href="#" Reject

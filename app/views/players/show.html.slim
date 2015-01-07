@@ -1,5 +1,9 @@
 h1 #{@player.username.capitalize}'s Profile
+- if current_player && @player.id != current_player.id
+  a href="#" Add as comrade
 p Member since #{time_ago_in_words(@player.created_at)} ago.
 p Last sign in was #{time_ago_in_words(@player.current_sign_in_at)} ago.
 
+= render "players/part/comrades"
+= render "players/part/comrade_requests"
 = render "players/part/activity"

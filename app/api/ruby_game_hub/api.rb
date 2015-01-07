@@ -1,6 +1,5 @@
 class RubyGameHub::API < Grape::API
   version 'v1'
-  format :json
 
   get '/' do
     []
@@ -8,11 +7,11 @@ class RubyGameHub::API < Grape::API
 
   resource :players do
     get '/' do
-      @players = Player.all.order('created_at ASC')
+      @players = Player.all.order('created_at ASC').select('id, username, created_at, updated_at')
     end
 
     get '/:username' do
-      @player = Player.where(username: params[:username]).limit(1)
+      @player = Player.where(username: params[:username]).limit(1).select('id, username, created_at, updated_at')
     end
   end
 

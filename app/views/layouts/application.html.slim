@@ -1,4 +1,4 @@
-DOCTYPE html
+doctype html
 html
   head
     title =RubyGameHub.hub_name
@@ -10,11 +10,11 @@ html
       .header
         h1 =RubyGameHub.hub_name
         a class="button" href="/" Main
-        a class="button" href="/servers" Servers
+        a class="button" href="/#servers" Servers
         a class="button" href="/players" Players
-        a class="button" href="/search" Search
+        a class="button" href="/#search" Search
         br
-        -# Making me work, please. I hate beinging a dumby!
+        -# Make me work, please. I hate being functionless!
         p <i class="fa fa-users info" title="Online players"> 12</i> <i class="fa fa-gamepad info" title="Active games"> 3</i> <i class="fa fa-clock-o info" title="Average wait time (in seconds)"> 63.7</i> <i class="fa fa-spinner info" title="Players in queue"> 0</i>
         -# if player_signed_in?
         - if defined?(flash[:notice])
@@ -23,7 +23,7 @@ html
           p.error #{flash[:error]}
         - if defined?(flash[:alert])
           p.error #{flash[:alert]}
-          
+
         br
       .content
         .sidebar
@@ -35,9 +35,13 @@ html
             = link_to "Sign Out", destroy_player_session_path, class: "nav-button", method: "delete"
             .friends
               h3 Comrades
-              -# This is not much fun. I stay the same all the time.
-              p <i class="fa fa-circle online info", title="Online"></i> Bob
-              p Freddy
+              - if current_player
+                - Comrade.where("player_id = #{current_player.id} AND accepted = 't' OR comrade_id = #{current_player.id} AND accepted = 't'").each do |comrade|
+                  - player = Player.find(comrade.comrade_id) unless current_player.id == comrade.comrade_id
+                  - player = Player.find(comrade.player_id) if current_player.id == comrade.comrade_id
+                  p
+                    i class="fa fa-circle online info" title="Online"
+                    a href="/players/#{player.username}" #{player.username}
           - else
             = link_to "Sign Up", new_player_registration_path, class: "nav-button"
             = link_to "Sign In", new_player_session_path, class: "nav-button-bottom"

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player_id: 1
+  comrade_id: 1
+  accepted: false
+
+two:
+  player_id: 1
+  comrade_id: 1
+  accepted: false

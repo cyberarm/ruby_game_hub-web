@@ -1,8 +1,8 @@
--# Please! Make me work. I do not want to be static anymore. :(
 h2 Activity
-h4 Played Multiplayer  Co-Op with john458
-p 17:51 July 9 2014
-h4 Played Multiplayer Co-Op with Freddy, Mooseduck-09 and Johnny.
-p 17:13 July 9 2014
-h4 Played Multiplayer Deathmatch with Freddy and Johnny.
-p 17:02 July 9 2014
+- @activities.each do |activity|
+  - # Activity.event is a descriptive verb (e.g. played, added, achieved)
+  - # Activity.description is the description of the event
+  h4 #{activity.event} #{activity.description} with #{'peoples'}
+  p=Time.parse(activity.created_at.to_s).strftime('%H:%M %B %e %Y')
+- if @activities.blank?
+  p No activity to show.

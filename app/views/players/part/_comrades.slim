@@ -1,0 +1,9 @@
+h2 Comrades
+- @comrades.each do |comrade|
+  - player = Player.find(comrade.comrade_id) unless @player.id == comrade.comrade_id
+  - player = Player.find(comrade.player_id) if @player.id == comrade.comrade_id
+  h4
+    a href="/players/#{player.username}" #{player.username}
+  p Comrade since #{time_ago_in_words(comrade.updated_at)} ago.
+- if @comrades.blank?
+  p #{@player.username} has no comrades.
