@@ -3,7 +3,7 @@ class CreateActivities < ActiveRecord::Migration
     create_table :activities do |t|
 
       t.string  :event, required: true
-      t.text    :desciption
+      t.text    :description
       t.integer :player_id, required: true
       t.timestamps
     end

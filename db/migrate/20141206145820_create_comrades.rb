@@ -4,7 +4,6 @@ class CreateComrades < ActiveRecord::Migration
       t.integer :player_id
       t.integer :comrade_id
       t.boolean :accepted, default: false
-
       t.timestamps
     end
   end

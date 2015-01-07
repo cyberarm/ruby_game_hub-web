@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20141206151000) do
 
   create_table "activities", force: true do |t|
     t.string   "event"
-    t.text     "description"
+    t.text     "desciption"
     t.integer  "player_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20141206151000) do
   create_table "played_withs", force: true do |t|
     t.integer  "player_id"
     t.integer  "activity_id"
-    t.integer  "played_with_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
